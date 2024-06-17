@@ -1,15 +1,22 @@
-import React from "react";
-import rigoImage from "../../img/rigo-baby.jpg";
+import React, {useContext} from "react";
+import {Context} from "../store/appContext"
 import "../../styles/home.css";
+import { Demo } from "./ContactForm";
+import { Formulario } from "./Formulario";
+import { Link } from "react-router-dom";
 
-export const Home = () => (
-	<div className="text-center mt-5">
-		<h1>Hello Rigo!</h1>
-		<p>
-			<img src={rigoImage} />
-		</p>
-		<a href="#" className="btn btn-success">
-			If you see this green button, bootstrap is working
-		</a>
+export const Home = () => { 
+ const {store} = useContext(Context)
+ console.log (store.demo)
+
+return (
+<div className="text-center mt-5">
+       
+<Link to="/formulario">
+        <button>Go to Form</button>
+      </Link>
+	  
+	<h1>Este Es EL homex</h1>
+     
 	</div>
-);
+)};

@@ -1,0 +1,97 @@
+/* Estilos para el formulario de creación */
+.formulario-container {
+    background-color: #343a40; /* Fondo oscuro */
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px auto; /* Centra el formulario y agrega espacio */
+    max-width: 500px; /* Ajusta el ancho máximo según sea necesario */
+}
+
+/* Estilos para las etiquetas de los campos */
+.formulario-container label {
+    margin-bottom: 0.5rem;
+    color: yellow; /* Color del texto de las etiquetas */
+}
+
+/* Estilos para los campos de entrada */
+.formulario-container input[type="text"],
+.formulario-container input[type="email"],
+.formulario-container input[type="tel"] {
+    width: 100%;
+    padding: 0.75rem;
+    margin: 0.5rem 0;
+    border: 2px solid #fff; /* Borde blanco */
+    border-radius: 5px;
+    background-color:#343a40; /* Fondo rojo */
+    color: white;
+}
+/* Placeholder */
+.formulario-container input::placeholder {
+    color: #555; /* Color del placeholder */
+}
+
+.button-row {
+    display: flex;
+    justify-content: space-between; /* Distribuye el espacio entre los botones */
+  }
+  
+
+.save-button-container {
+    display: flex; /* Activa el modelo de caja flexible */
+    justify-content: flex-start; /* Alinea los elementos al principio del contenedor */
+}
+
+.save-button {
+    background-color: yellow;
+    color: black;
+    align-self: flex-start; /* Alinea el botón "Guardar" a la izquierda */
+  }
+
+.save-button:hover {
+    background-color: transparent;
+    color: yellow;
+    border-color: yellow;
+}
+
+.save-button:active {
+    border-color: yellow;
+}
+
+.cancel-button {
+    background-color:#5e5f61;
+    color: rgb(235, 12, 12);
+    align-self: flex-end; /* Alinea el botón "Cancelar" a la derecha */
+  }
+
+.cancel-button:hover {
+    background-color: transparent;
+    color: red;
+    border-color: yellow;
+}
+
+.cancel-button:active {
+    border-color: yellow;
+}
+
+.button-row {
+    display: flex;
+    justify-content: space-between; /* Distribuye el espacio entre los botones */
+  }
+
+
+  .modal-title
+{
+    color: rgb(255, 255, 255);
+    
+}
+
+.modal-body{
+    color: #ffffff;
+    
+}
+
+
+.modal-content {
+    background-color: #343a40;
+}

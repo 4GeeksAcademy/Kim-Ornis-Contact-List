@@ -1,18 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { AddContact } from "../components/addContact.jsx";
+import  AddContact  from "../components/addContact.jsx";
 
-export const Navbar = () => {
+const Navbar = () => {
   return (
     <nav className="navbar navbar-container">
       <Link to="/" style={{ color: "transparent" }}>
-        <h3>Taylor's Contact List</h3>
+        <h3>Kim's Contact List</h3>
       </Link>
       <div className="ml-auto">
-        <Link to="/AddContact" className="btn btn-success navbar-button">
+        <Link to="/addContact" className="btn btn-success navbar-button">
           Add New Contact
         </Link>
       </div>
     </nav>
   );
 };
+
+export default Navbar

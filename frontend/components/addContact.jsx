@@ -1,10 +1,10 @@
-import React, { useContext, useState } from "react";
-import { Context } from "../store/appContext";
+import React, {useState } from "react";
+import { Context } from "./appContext";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-export const AddContact = () => {
-  const { actions, store } = useContext(Context);
+const AddContact = () => {
+  const { actions, store } = useState('');
   const navigate = useNavigate();
 
   const [contactData, setContactData] = useState({
@@ -82,3 +82,5 @@ export const AddContact = () => {
     </div>
   );
 };
+
+export default AddContact;

@@ -1,17 +1,18 @@
-//import react into the bundle
-import React from 'react'
-import {createRoot} from 'react-dom/client'
+import React from 'react';
+import { Outlet } from 'react-router-dom';
+import Navbar from '../components/navbar';
+import ScrollToTop from '../components/scrollToTop';
+import Footer from '../components/footer';
 
-//include your index.scss file into the bundle
-import "../pages/home.css";
+const Layout= () => {
+    return (
+        <div className="app-container">
+            <ScrollToTop />
+            <Navbar />
+            <Outlet />
+            <Footer />
+        </div>
+    );
+};
 
-//import your own components
-import Layout from './layout.js'
-
-//
-const root = createRoot(document.querySelector("#app"))
-
-//render your react application
-root.render(<Layout/>)
-
-
+export default Layout

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import  AddContact  from "../components/addContact.jsx";
+import  addContact  from "../components/addContact.jsx";
 
 const Navbar = () => {
   return (

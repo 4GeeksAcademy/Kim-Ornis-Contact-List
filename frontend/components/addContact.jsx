@@ -3,7 +3,7 @@ import { Context } from "./appContext";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-const AddContact = () => {
+const addContact = () => {
   const { actions, store } = useState('');
   const navigate = useNavigate();
 
@@ -17,13 +17,12 @@ const AddContact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      await actions.addContacts(contactData);
+    
+      await actions.addContact(contactData);
       await actions.getContacts();
       navigate("/");
-    } catch (error) {
-      console.error("Error adding contact", error);
-    }
+    //} catch (error) {
+      //console.error("Error adding contact", error);
   };
 
   return (
@@ -83,4 +82,4 @@ const AddContact = () => {
   );
 };
 
-export default AddContact;
+export default addContact;

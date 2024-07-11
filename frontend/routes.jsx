@@ -9,6 +9,7 @@ import  Layout  from "./pages/Layout";
 import { Single } from "./pages/Single";
 import { Demo } from "./pages/Demo";
 import AddContact from "./components/addContact"
+import { Home } from "./pages/Home";
 
 
 export const router = createBrowserRouter(
@@ -23,10 +24,8 @@ export const router = createBrowserRouter(
       <Route path="/" element={<Layout />} errorElement={<h1>Not found!</h1>} >
 
         {/* Nested Routes: Defines sub-routes within the BaseHome component. */}
-        <Route path= "/" element={<Layout />} />
-        <Route path="/single/:theId" element={ <Single />} />  {/* Dynamic route for single items */}
+        <Route path= "/" element={<Home />} />
         <Route path="/addContact" element={ <AddContact />} />
-        <Route path="/demo" element={<Demo />} />
       </Route>
     )
 );

@@ -1,10 +1,8 @@
 import React, { useContext } from "react";
-import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 
 export const ContactCard = ({ contact }) => {
-  const { full_name, email, address, phone } = contact;
-  const { actions } = useContext(Context);
+  const { name, email, address, phone } = contact;
 
   return (
     <div className="contact-card col-xl-4 col-sm-6 mb-3">
@@ -20,7 +18,7 @@ export const ContactCard = ({ contact }) => {
               />
             </div>
           </div>
-          <h5 className="mb-0 ">{full_name}</h5>
+          <h5 className="mb-0 ">{name}</h5>
         </div>
 
         <div className="row mt-2  icons-margin-left ">
@@ -51,7 +49,7 @@ export const ContactCard = ({ contact }) => {
           <div className="col-md-6">
             <button
               className="btn btn-danger icon-button"
-              onClick={() => actions.deleteContacts(contact.id)}
+              onClick={() => console.log(contact.id)}
             >
               <i className="fas fa-trash-alt" />
             </button>

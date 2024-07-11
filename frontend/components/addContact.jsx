@@ -1,15 +1,13 @@
-import React, {useState } from "react";
-import { Context } from "./appContext";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
 
 const addContact = () => {
-  const { actions, store } = useState('');
+  const { dispatch } = useGlobalReducer();
   const navigate = useNavigate();
 
-  const [contactData, setContactData] = useState({
-    agenda_slug: "taylor-allen",
-  });
+  const [contactData, setContactData] = useState({});
 
   const handleChange = (e) => {
     setContactData({ ...contactData, [e.target.name]: e.target.value });
@@ -18,8 +16,46 @@ const addContact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-      await actions.addContact(contactData);
-      await actions.getContacts();
+    // This creates a contact.
+    const url = "https://playground.4geeks.com/contact/agendas/KOTHECODE/contacts";
+    const request = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(contactData),
+    };
+
+    await fetch(url, request)
+      .then((resp) => {
+        if (!resp.ok) throw Error(resp.statusText);
+        return resp.json();
+      })
+      .then((data) => {
+        console.log(data);
+        // Dispatch data to store.js.
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+    await fetch(
+      "https://playground.4geeks.com/contact/agendas/KOTHECODE/contacts"
+    )
+      .then((resp) => {
+        if (!resp.ok) throw Error(resp.statusText);
+        return resp.json();
+      })
+      .then((data) => {
+        console.log(data);
+        dispatch({
+          'type': 'replace_contacts',
+          'contacts': data.contacts
+        })
+      })
+      .catch((error) => {
+        console.log(error);
+      });
       navigate("/");
     //} catch (error) {
       //console.error("Error adding contact", error);
@@ -32,7 +68,7 @@ const addContact = () => {
           <label>Full Name</label>
           <input
             type="text"
-            name="full_name"
+            name="name"
             onChange={(e) => {
               handleChange(e);
             }}
